@@ -23,7 +23,7 @@ A primeira etapa planejada será um **protótipo web para apresentação e teste
 
 O resultado esperado da primeira versão é uma solicitação fictícia estruturada ou uma dúvida respondida na demonstração. Uma solicitação de pré-agendamento **não é uma consulta confirmada**. A pessoa que representa a recepção poderá analisar o pedido e registrar um resultado simulado no painel; isso não altera uma agenda real.
 
-O bot responderá às informações cadastradas enquanto o ambiente publicado estiver disponível. Os cenários de recepção disponível e fora do expediente serão demonstrativos. O link não significará atendimento clínico real nem recepção acompanhando continuamente; quando ninguém estiver supervisionando, a interface informará essa condição sem prometer retorno humano.
+O bot responderá às informações cadastradas enquanto o ambiente publicado estiver disponível. O horário base da recepção será o confirmado pelo usuário: segunda a sexta-feira, das 08h às 19h, e sábados, das 08h às 12h, em `America/Sao_Paulo`. Os cenários de presença e ausência de um integrante da dupla continuarão demonstrativos. O link não significará atendimento clínico real nem recepção acompanhando continuamente; quando ninguém estiver supervisionando, a interface informará essa condição sem prometer retorno humano.
 
 ## 3. Requisito original e simplificação proposta
 
@@ -80,12 +80,12 @@ O público planejado inclui adolescentes. Na apresentação serão usados apenas
 
 ## 7. Premissas e dependências
 
-1. A apresentação e os testes por link utilizarão somente dados fictícios e mensagens identificadas como demonstração.
+1. A apresentação e os testes por link utilizarão pessoas, contatos, relatos, pedidos e decisões fictícios, com mensagens identificadas como demonstração. O FAQ administrativo utilizará as informações da clínica confirmadas pelo usuário.
 2. Os visitantes poderão representar pacientes de teste. Apenas integrantes autorizados da dupla representarão a recepção no painel. Um ticket criado não equivale a uma pessoa já atendendo.
 3. A primeira versão terá uma aplicação única com Python/FastAPI, SQLAlchemy, Alembic e páginas Jinja2. A hospedagem proposta será Render, com PostgreSQL Neon no ambiente publicado e no desenvolvimento integrado, conforme a [arquitetura](05-arquitetura.md).
 4. O chat será planejado para acesso por HTTPS em navegadores e dispositivos diferentes. Uma sessão autorizará somente as conversas do próprio visitante; conhecer um identificador não concederá acesso a outro histórico.
 5. O banco persistente armazenará os dados de demonstração entre reinícios e publicações. SQLite poderá ser usado apenas em ensaio local opcional, sem substituir a homologação com PostgreSQL. O prazo de inatividade e o procedimento administrativo de preparação da massa serão definidos antes dos testes; não haverá reset global disponível ao público.
-6. Os dados da clínica no PDF são conteúdo fornecido para o projeto; endereço, horários e condições comerciais serão tratados como conteúdo de exemplo. Uma operação real dependeria de validação da clínica e dos controles em [Dados e segurança](06-dados-e-seguranca.md).
+6. Endereço, horário da recepção, política de convênio e formas de pagamento foram confirmados posteriormente pelo usuário e atualizam a base do PDF. Esses temas deixam de ser pendências de conteúdo; consultar os textos exatos em [Funcionalidades](03-funcionalidades.md#base-de-conhecimento-e-publicação). Isso não altera o caráter demonstrativo dos atendimentos ou os controles em [Dados e segurança](06-dados-e-seguranca.md).
 7. O roteiro de encaminhamento será apresentado como uma simulação administrativa, sem diagnóstico nem orientação clínica. Antes de qualquer uso real, a clínica e o dentista responsável deverão aprovar seus textos.
 8. A configuração da hospedagem, a publicação e a emissão do link ocorrerão somente na etapa de implementação. Este planejamento não representa uma aplicação implementada ou um ambiente já publicado.
 
@@ -97,13 +97,26 @@ A demonstração será apresentada como um protótipo web com dados e decisões 
 
 Os critérios detalhados estão em [Funcionalidades](03-funcionalidades.md), [Testes e métricas](09-testes-e-metricas.md) e [Plano de implementação](08-plano-de-implementacao.md).
 
-## 9. Decisões que precisam de validação antes do uso real
+## 9. Validações recebidas e pendências
+
+Dados confirmados pelo usuário em 26/10/2026 para o planejamento:
+
+| Tema | Informação confirmada |
+| --- | --- |
+| Horário da recepção | Segunda a sexta-feira, das 08h às 19h; sábados, das 08h às 12h. |
+| Convênio | Não realiza atendimento por convênio; emite nota fiscal para reembolso. |
+| Endereço | R. Vinte e Quatro de Maio, 1474 - Centro, Indaiatuba - SP, 13339-315. |
+| Pagamentos | PIX, cartões de débito e crédito (em até 10x sem juros no carnê/cartão) e dinheiro. Condições facilitadas para tratamentos completos. |
+
+O horário confirmado não define prazo de resposta, funcionamento em feriados ou disponibilidade de alguém acompanhando a demonstração.
+
+Pendências antes de eventual uso real:
 
 | Decisão | Responsável sugerido |
 | --- | --- |
-| Horário real da recepção e prazo de retorno informado nas mensagens | Clínica/recepção |
+| Prazo máximo de retorno e eventuais exceções de expediente/feriados | Clínica/recepção |
 | Texto de contingência para relatos prioritários fora do expediente | Dentista responsável |
-| Endereço, convênios, pagamentos e condições de parcelamento | Clínica/recepção |
+| Valores dos tratamentos e condições comerciais adicionais às já confirmadas | Clínica/recepção |
 | Dados estritamente necessários para identificar o pedido | Clínica e equipe do projeto |
 | Tratamento de pacientes menores e participação de responsáveis | Clínica |
 | Condições da integração futura do canal, documentadas na [fase 07](07-integracao-whatsapp.md) | Clínica e equipe técnica |

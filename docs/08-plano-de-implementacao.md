@@ -12,7 +12,7 @@ O alvo futuro é uma demonstração web acessível por link, em vários navegado
 
 | Fase | Trabalho futuro | Entrega verificável |
 |---|---|---|
-| 1. Validar | Rever dados fictícios, fluxos e operação da recepção. | Escopo de demonstração fechado. |
+| 1. Validar | Usar o FAQ administrativo confirmado; preparar pessoas/pedidos fictícios e rever fluxos e pendências da recepção. | Escopo de demonstração fechado, sem reabrir como pendentes os quatro temas confirmados. |
 | 2. Preparar projeto | Criar Python/FastAPI, dependências, PostgreSQL de teste e migrações. | Ambiente reproduzível e versão das dependências registrada. |
 | 3. Implementar conversa | Chat, menu, FAQ, pedidos, resumo e estados. | Caminhos principais funcionando. |
 | 4. Implementar acesso | Sessões por visitante, painel autenticado, CSRF e limites. | Isolamento e encaminhamento corretos. |
@@ -100,7 +100,7 @@ Não incluir segredos no repositório, nem aplicar reset global no startup. Um r
 | 6 | Testar duas entradas inválidas e um relato prioritário. | Encaminhamento e destaque na fila. |
 | 7 | Encerrar e avaliar. | Resultado e satisfação registrados. |
 
-Usar dados fictícios e identificar o produto como demonstração. Não apresentar decisões como reservas clínicas reais. Informar quando não houver equipe acompanhando a fila.
+Usar pessoas, relatos e pedidos fictícios e identificar o produto como demonstração. O FAQ exibirá as informações administrativas confirmadas pelo usuário na [base de conhecimento](03-funcionalidades.md#base-de-conhecimento-e-publicação). Não apresentar decisões como reservas clínicas reais. Informar quando não houver equipe acompanhando a fila, sem inventar prazo máximo de resposta.
 
 ## 7. Critérios futuros de pronto
 
@@ -111,7 +111,7 @@ Usar dados fictícios e identificar o produto como demonstração. Não apresent
 - Repetição de envio sem pedido duplicado.
 - Sem reset global público ou credencial padrão.
 - Estados de erro/carregamento e retomada segura após inatividade.
-- Fontes de dados fictícias e documentação atualizadas com o que foi implementado.
+- FAQ administrativo confirmado, massa fictícia de visitantes/pedidos e documentação atualizados com o que foi implementado.
 
 Nenhum critério está declarado aprovado nesta entrega. Os casos estão em [testes e métricas](09-testes-e-metricas.md).
 

@@ -5,7 +5,7 @@
 ## 1. Princípios do roteiro
 
 - Fazer uma pergunta por mensagem e manter as opções numeradas.
-- Usar mensagens fixas de demonstração; antes de eventual uso real, obter aprovação da clínica.
+- Usar mensagens fixas de demonstração com o FAQ administrativo confirmado pelo usuário. Roteiro clínico e orientações de procedimentos precisam de aprovação profissional antes de eventual uso real.
 - Identificar quando a informação ainda é apenas uma preferência ou solicitação.
 - Permitir `menu` e `recepção` enquanto o bot estiver ativo.
 - Preservar o estado em respostas inválidas e pausar a automação no atendimento humano.
@@ -13,7 +13,7 @@
 - Planejar a conversa no chat web público e as ações humanas em painel restrito, usando o mesmo motor e dados fictícios persistidos no PostgreSQL.
 - Vincular cada conversa à sessão do visitante e conferir essa autorização no servidor, inclusive em atualizações de histórico.
 
-Os textos abaixo são propostas para o protótipo web da apresentação e dos testes por link. Pessoas poderão testar em navegadores e dispositivos diferentes; nenhuma mensagem será enviada a um número real. Dados comerciais, roteiro de encaminhamento e mensagem para relatos prioritários fora do expediente precisarão de aprovação antes de eventual operação real. O chat, o painel e o ambiente público ainda não foram implementados ou publicados.
+Os textos abaixo são propostas para o protótipo web da apresentação e dos testes por link. Pessoas poderão testar em navegadores e dispositivos diferentes; nenhuma mensagem será enviada a um número real. Horários, endereço, convênio e pagamentos já foram confirmados pelo usuário; roteiro clínico e mensagem profissional para relatos prioritários fora do expediente continuam pendentes de aprovação. O chat, o painel e o ambiente público ainda não foram implementados ou publicados.
 
 O prazo de inatividade do roteiro será configurado antes de liberar o link. A ação de iniciar novo teste criará outro episódio do próprio visitante, sem apagar pedidos ou alterar conversas de outras pessoas. Não haverá reset global na interface pública. O WhatsApp será o canal pretendido para evolução, com suas regras tratadas exclusivamente em [Integração futura WhatsApp](07-integracao-whatsapp.md).
 
@@ -137,15 +137,15 @@ Não utilizar a frase do exemplo original “Identificamos uma emergência” co
 >
 > 5 — Valores e outras dúvidas
 
-| Estado de resposta | Conteúdo base proposto |
+| Estado de resposta | Resposta com dados administrativos confirmados |
 | --- | --- |
-| `FAQ_ENDERECO` | “O endereço informado para a clínica é Rua 24 de Maio, nº 1474, Centro, Indaiatuba/SP.” |
-| `FAQ_HORARIOS` | “O horário informado é de segunda a sexta, das 8h às 19h, e sábado, das 8h às 12h.” |
-| `FAQ_CONVENIOS` | “A clínica não atende por convênio e emite nota fiscal para solicitação de reembolso. Para detalhes, fale com a recepção.” |
-| `FAQ_PAGAMENTOS` | “A clínica informa que aceita PIX, débito, crédito e dinheiro. A recepção pode esclarecer as condições de parcelamento.” |
+| `FAQ_ENDERECO` | “Estamos na R. Vinte e Quatro de Maio, 1474 - Centro, Indaiatuba - SP, 13339-315.” |
+| `FAQ_HORARIOS` | “Nossa recepção funciona de segunda a sexta-feira, das 08h às 19h, e aos sábados, das 08h às 12h.” |
+| `FAQ_CONVENIOS` | “Não realizamos atendimento por convênio, mas emitimos nota fiscal para reembolso.” |
+| `FAQ_PAGAMENTOS` | “Aceitamos PIX, cartões de débito e crédito (em até 10x sem juros no carnê/cartão) e dinheiro. Oferecemos condições facilitadas para tratamentos completos.” |
 | `FAQ_OUTRAS` | “A recepção pode esclarecer valores e outras dúvidas. Deseja que eu encaminhe seu atendimento?” |
 
-Na apresentação, essas respostas são conteúdo de exemplo derivado do PDF. Uma eventual operação real dependeria de dados aprovados pela clínica. A base e as pendências de revisão estão em [Funcionalidades](03-funcionalidades.md).
+Essas quatro respostas incorporam a confirmação do usuário de 26/10/2026. Nomes, contatos, relatos, pedidos e decisões dos testadores continuam fictícios. Não acrescentar promessa de reembolso, preço de tratamento ou regra de parcelamento não fornecida. A base e as demais pendências estão em [Funcionalidades](03-funcionalidades.md#base-de-conhecimento-e-publicação).
 
 Após responder:
 
@@ -187,7 +187,9 @@ Esse botão não apagará pedidos anteriores ou dados de outras pessoas. O coman
 
 Para FAQ, continuar respondendo normalmente. Para pré-agendamento e pedidos de alteração, registrar o pedido e acrescentar:
 
-> Este cenário está fora do expediente da recepção. Seu pedido fictício ficou registrado, mas esta demonstração não garante retorno humano. Horário do cenário: [horário configurado da recepção].
+> A recepção está fora do expediente. Funcionamos de segunda a sexta-feira, das 08h às 19h, e aos sábados, das 08h às 12h. Seu pedido de demonstração ficou registrado para análise.
+
+O horário é confirmado pelo usuário; o prazo máximo de retorno não foi definido. Não acrescentar promessa de resposta no próximo expediente ou em um número de minutos/horas. Quando não houver integrante supervisionando, acrescentar o aviso da seção 7. Feriados e exceções deverão ser configurados quando informados.
 
 O cenário simulará a ausência da recepção, sem depender de uma equipe real. Para demonstrar a retomada, uma pessoa autorizada da dupla assumirá o pedido no painel e responderá pelo chat web. Sem supervisão, o visitante poderá iniciar outro teste próprio, sem alterar a fila dos demais.
 
@@ -225,4 +227,4 @@ A avaliação é opcional e só ocorre após encerramento adequado. Não enviar 
 
 ## Referência
 
-Fonte interna: PDF “Definições para Chatbot (1).pdf”, páginas 2 e 3 para o fluxo original e páginas 3 e 4 para a base. As mensagens desta página adaptam o roteiro à versão simples proposta, removendo promessas que dependem de disponibilidade ou ação humana. Consulte [Referências](10-referencias.md).
+Fontes: PDF “Definições para Chatbot (1).pdf”, páginas 2 e 3 para o fluxo original e páginas 3 e 4 para a base; confirmação administrativa do usuário em 26/10/2026 para horário, endereço, convênio e pagamentos. As demais mensagens adaptam o roteiro à versão simples proposta, sem prometer disponibilidade ou prazo humano não definido. Consulte [Referências](10-referencias.md).

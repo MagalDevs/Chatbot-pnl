@@ -4,7 +4,7 @@
 
 ## 1. Escopo planejado
 
-A demonstração pública usará dados fictícios. Não será prontuário, não exigirá CPF e não consultará cadastro clínico. O visitante deve ser orientado a não informar dados pessoais ou relatos reais.
+A demonstração pública usará nomes, contatos, relatos, pedidos e decisões fictícios. O FAQ administrativo usará horário, endereço, convênio e pagamentos confirmados pelo usuário, conforme a [base de conhecimento](03-funcionalidades.md#base-de-conhecimento-e-publicação). Não será prontuário, não exigirá CPF e não consultará cadastro clínico. O visitante deve ser orientado a não informar dados pessoais ou relatos reais.
 
 O modelo é conceitual. Não existem tabelas, migrações executadas ou banco remoto configurado. A proposta publicada utiliza PostgreSQL no Neon; SQLite opcionalmente serve para ensaios locais e não comprova o comportamento do banco publicado.
 
@@ -23,7 +23,7 @@ Usar identificadores internos não sequenciais, instantes em UTC e apresentaçã
 | `audit_events` | ator, ação, objeto, data e resultado | Atribuição e decisão administrativas. |
 | `metric_events` | episódio, tipo, instante, chave única e nota opcional | Indicadores sem duplicação por repetição técnica. |
 
-FAQ e dados públicos fictícios podem ficar em JSON versionado. Segredos e bancos gerados não entram no Git.
+FAQ e dados administrativos confirmados da clínica podem ficar em JSON versionado, com registro de origem e revisão. Pessoas e pedidos da massa de teste continuarão fictícios. Segredos e bancos gerados não entram no Git.
 
 ## 3. Estados e integridade
 
@@ -66,9 +66,11 @@ Referências: [hash de senha FastAPI](https://fastapi.tiangolo.com/tutorial/secu
 | `TZ` | `America/Sao_Paulo` para apresentação dos horários. |
 | `LOG_LEVEL` | Logs de IDs/códigos sem conteúdo completo de conversas. |
 | Parâmetros de sessão e fluxo | Prazos de expiração, retomada e limites. |
-| Arquivos JSON de cenário | FAQ, expediente, exceções e dados fictícios. |
+| Arquivos JSON de cenário | FAQ administrativo confirmado e horário base da recepção; exceções quando informadas, separadas da massa fictícia de visitantes e pedidos. |
 
 Os nomes são propostas documentais; não foram criados arquivos de ambiente ou valores reais. A porta/interface de execução seguirá a configuração da hospedagem. Não exigir variáveis da Meta.
+
+O horário base confirmado é segunda a sexta-feira, das 08h às 19h, e sábados, das 08h às 12h, em `America/Sao_Paulo`. Prazo máximo de retorno, feriados e exceções ainda não foram informados; não preencher esses parâmetros com promessas presumidas.
 
 Usar URL de conexão/SSL conforme o provedor, pool pequeno e conta de banco com permissões necessárias. Banco de testes e banco publicado devem ser separados.
 

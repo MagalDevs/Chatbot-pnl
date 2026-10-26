@@ -15,7 +15,18 @@ Data da consulta técnica: **26/10/2026**. Os links abaixo são fontes oficiais 
 | 3 e 4 | Base de perguntas e respostas da clínica. |
 | 4 | Metas e indicadores propostos. |
 
-O documento é uma fonte de requisitos. Seus exemplos não foram tratados como dados comerciais verificados, instruções clínicas aprovadas ou funcionalidades já implementadas. A separação entre requisitos originais e proposta de MVP está em [visão e escopo](01-visao-e-escopo.md).
+O documento é uma fonte de requisitos. Seus exemplos, por si só, não representam validação administrativa ou clínica. Posteriormente, o usuário confirmou horário da recepção, convênio, endereço completo e pagamentos; essas informações atualizam a base do PDF. Isso não equivale a verificação externa, aprovação de roteiro clínico ou funcionalidade implementada. A separação entre requisitos originais e proposta de MVP está em [visão e escopo](01-visao-e-escopo.md).
+
+### Confirmação administrativa posterior
+
+Fonte: mensagem do usuário nesta conversa, recebida em 26/10/2026.
+
+- Recepção: segunda a sexta-feira, das 08h às 19h; sábados, das 08h às 12h.
+- Convênio: não realiza atendimento por convênio; emite nota fiscal para reembolso.
+- Endereço: R. Vinte e Quatro de Maio, 1474 - Centro, Indaiatuba - SP, 13339-315.
+- Pagamentos: PIX, cartões de débito e crédito (em até 10x sem juros no carnê/cartão) e dinheiro, com condições facilitadas para tratamentos completos.
+
+Nesses temas, a confirmação posterior do usuário prevalece sobre as redações anteriores de exemplo. Os textos para o bot estão na [base de conhecimento](03-funcionalidades.md#base-de-conhecimento-e-publicação). Não foram definidos prazo máximo de retorno, feriados, valores de tratamento ou condições adicionais de parcelamento.
 
 ## 2. Linguagem, API e interface
 

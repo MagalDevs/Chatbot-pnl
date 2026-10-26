@@ -8,7 +8,7 @@ O protótipo deverá ter um endereço público para que outras pessoas possam te
 
 **Esta entrega é somente planejamento.** Ainda não existem aplicação executável, banco remoto configurado, conta de hospedagem vinculada ou link funcional do chatbot. Nenhuma publicação é declarada concluída neste documento.
 
-O chat publicado continuará sendo uma demonstração com dados fictícios. Ele não realizará consultas odontológicas, reservas em agenda real ou envio pelo WhatsApp. A integração de mensagens permanece uma evolução separada.
+O chat publicado continuará sendo uma demonstração com pessoas, relatos, pedidos e decisões fictícios. O FAQ administrativo usará as informações da clínica confirmadas pelo usuário na [base de conhecimento](03-funcionalidades.md#base-de-conhecimento-e-publicação). Ele não realizará consultas odontológicas, reservas em agenda real ou envio pelo WhatsApp. A integração de mensagens permanece uma evolução separada.
 
 ## 2. Proposta de infraestrutura
 

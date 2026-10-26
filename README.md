@@ -8,9 +8,11 @@ Planejamento de um assistente de atendimento inicial, com respostas fixas, pré-
 
 A futura demonstração será um **chat web acessível por link público**, para que outras pessoas possam testar pelo computador ou celular. Cada visitante terá sua própria conversa; o painel da recepção terá acesso restrito.
 
-O sistema demonstrará respostas frequentes, pedidos administrativos e encaminhamento humano com dados fictícios. Pré-agendamento significa solicitação pendente de análise, sem reserva real.
+O sistema demonstrará respostas frequentes com os dados administrativos da clínica confirmados pelo usuário. Nomes, contatos, relatos, pedidos e decisões dos testadores continuarão fictícios. Pré-agendamento significa solicitação pendente de análise, sem reserva real.
 
 O planejamento parte de **Definições para Chatbot (1).pdf**, da atividade final de Daniel Galvão Magalhães da Silva e Hosana Azevedo Pires. O WhatsApp continua como evolução; a primeira publicação será do chat web.
+
+Horários da recepção, endereço completo, convênios e formas de pagamento já foram confirmados pelo usuário e estão registrados na [base de conhecimento](docs/03-funcionalidades.md#base-de-conhecimento-e-publicação). O prazo máximo de retorno e as exceções de expediente ainda não foram definidos.
 
 ## Funcionalidades planejadas
 

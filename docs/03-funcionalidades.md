@@ -43,10 +43,11 @@ O PDF de origem define o produto mais amplo. A primeira entrega planejada usará
 **Critérios de aceite:**
 
 - As quatro categorias básicas são localização, funcionamento, convênios e pagamentos.
-- A resposta sobre convênios segue a base concreta do PDF: a clínica informa que não atende por convênio.
+- A resposta sobre convênios segue a confirmação posterior do usuário: não há atendimento por convênio, mas há emissão de nota fiscal para reembolso.
+- Endereço com CEP, horários e condições de pagamento devem corresponder aos textos confirmados na base ao final deste documento, incluindo até 10x sem juros no carnê/cartão.
 - O bot não inventa valores de tratamento, regras de reembolso ou condições de parcelamento.
 - Informação ausente oferece encaminhamento humano.
-- A base possui identificação de revisão e de seu caráter demonstrativo. A aprovação da clínica será necessária antes de eventual publicação para pacientes reais.
+- A base identifica a origem e a data de confirmação administrativa. Endereço, horários, convênio e pagamentos já foram confirmados pelo usuário; roteiro clínico e orientações de procedimentos continuam sujeitos a aprovação profissional. O atendimento permanece demonstrativo.
 
 ### RF04 — Identificação mínima do solicitante
 
@@ -137,7 +138,8 @@ O PDF de origem define o produto mais amplo. A primeira entrega planejada usará
 **Critérios de aceite:**
 
 - O cálculo considera `America/Sao_Paulo`, e não o horário padrão do servidor.
-- A agenda de funcionamento é configurável, incluindo um cenário de demonstração fora do expediente.
+- O horário base confirmado é de segunda a sexta-feira, das 08h às 19h, e aos sábados, das 08h às 12h. A configuração deve reproduzi-lo e permitir cenários demonstrativos fora do expediente.
+- Feriados e exceções ainda não foram informados. O horário não deve ser convertido em promessa de prazo máximo de resposta, que permanece sem definição.
 - Mensagens não prometem atendimento “imediato” ou “em instantes” quando não houver equipe disponível.
 - Relatos prioritários seguem o tratamento específico de RF07.
 - O pedido permanecerá pendente no painel; quando um integrante autorizado acompanhar o teste, ele poderá assumir e responder pelo chat web. A mensagem de espera não garantirá esse retorno.
@@ -182,15 +184,18 @@ O PDF de origem define o produto mais amplo. A primeira entrega planejada usará
 
 ## Base de conhecimento e publicação
 
-| Categoria | Conteúdo fornecido no PDF | Tratamento no MVP |
+Fonte administrativa atual: confirmação do usuário em 26/10/2026, que complementa e atualiza o PDF. Os dados abaixo estão confirmados para o planejamento; os registros dos visitantes permanecem fictícios.
+
+| Categoria | Conteúdo confirmado ou situação atual | Tratamento no MVP |
 | --- | --- | --- |
-| Localização | Rua 24 de Maio, nº 1474, Centro, Indaiatuba/SP | Usar como conteúdo de exemplo na demonstração; validar antes de eventual uso real |
-| Funcionamento | Segunda a sexta, 8h às 19h; sábado, 8h às 12h | Usar nos cenários demonstrativos de horário; validar a operação antes de eventual uso real |
-| Convênios | Não atende por convênio; emite nota fiscal para solicitação de reembolso | Não garantir aprovação ou valor de reembolso |
-| Pagamentos | PIX, débito, crédito e dinheiro; menção a parcelamento | Demonstrar as formas de pagamento; deixar condições de parcelamento para a recepção |
+| Localização | R. Vinte e Quatro de Maio, 1474 - Centro, Indaiatuba - SP, 13339-315 | Exibir o endereço completo, com CEP. |
+| Funcionamento da recepção | Segunda a sexta-feira, das 08h às 19h; sábados, das 08h às 12h. | Usar como horário base em `America/Sao_Paulo`; exceções e feriados ainda não definidos. |
+| Convênio | Não realiza atendimento por convênio, mas emite nota fiscal para reembolso. | Informar emissão da nota sem garantir aprovação ou valor de reembolso. |
+| Pagamentos | PIX, cartões de débito e crédito (em até 10x sem juros no carnê/cartão) e dinheiro. Condições facilitadas para tratamentos completos. | Reproduzir as condições confirmadas, sem inventar valor mínimo, limite, elegibilidade ou outras regras de parcelamento. |
+| Prazo de retorno | Não foi informado um tempo máximo de resposta. | Exibir o horário e o status do pedido, sem prometer retorno em minutos, horas ou no próximo expediente. |
 | Valores | Não há tabela de preços no documento | Encaminhar para a recepção |
 | Cuidados sobre procedimentos | Exemplo de orientação no PDF | Não publicar automaticamente; depende de revisão do dentista e fica como evolução |
 
 ## Referência
 
-Fonte interna: PDF “Definições para Chatbot (1).pdf”, páginas 1 a 4. A seleção para o MVP e os critérios de aceite são propostas de implementação derivadas desse conteúdo. Veja [Referências](10-referencias.md).
+Fontes: PDF “Definições para Chatbot (1).pdf”, páginas 1 a 4, e confirmação administrativa fornecida pelo usuário em 26/10/2026. Em caso de divergência nesses quatro temas, a confirmação posterior do usuário é a referência atual. A seleção para o MVP e os critérios de aceite continuam sendo propostas de implementação. Veja [Referências](10-referencias.md).
